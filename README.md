@@ -48,6 +48,7 @@ Dysregulation of the ubiquitin-proteasome system (UPS) in breast cancer is drive
 ---
 
 ## Repository Structure
+```
 proteasome-grn-brca/
 ├── scripts/
 │   ├── 01_download_tumor_data.R
@@ -76,7 +77,7 @@ proteasome-grn-brca/
 ├── .gitignore
 ├── LICENSE
 └── README.md
-
+```
 ---
 
 ## Pipeline Details
