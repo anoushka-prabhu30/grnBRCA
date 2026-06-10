@@ -1,7 +1,7 @@
 # Exploring Gene Regulatory Networks Associated with the Proteasome in Breast Cancer Progression
 
 **Author:** Anoushka A Prabhu (B.Tech Biotechnology)
-**Institution:** Bioinformatics Centre (BTIS), Cancer Research Institute, ACTREC — Advanced Centre for Treatment, Research and Education in Cancer, Tata Memorial Centre, Navi Mumbai, India
+**Institution:** Bioinformatics Centre (BTIS), Cancer Research Institute, ACTREC: Advanced Centre for Treatment, Research and Education in Cancer, Tata Memorial Centre, Navi Mumbai, India
 **Supervisor:** Nikhil Gadewal, Scientific Officer 'F'
 **Project Tenure:** January 2 – May 30, 2025
 
@@ -11,9 +11,9 @@
 
 Gene regulatory networks (GRNs) are critical for regulating gene expression through interactions between transcription factors and their target genes, driving essential biological processes such as cell growth, differentiation, and responses to environmental signals. Disruptions in GRNs can lead to uncontrolled cell proliferation, evasion of apoptosis, and therapy resistance in cancer.
 
-While extensive research has focused on breast cancer signalling pathways, the regulatory mechanisms surrounding the proteasome remain underexplored. The ubiquitin-proteasome system (UPS) is a crucial component of cellular homeostasis — a multiprotein complex that targets and degrades proteins. Dysregulation of this complex has been linked to carcinogenesis, especially in aggressive subtypes of breast cancer, as tumour suppressors, misfolded proteins, and cell cycle regulators can all be broken down by aberrant proteasomal activity.
+While extensive research has focused on breast cancer signalling pathways, the regulatory mechanisms surrounding the proteasome remain underexplored. The ubiquitin-proteasome system (UPS) is a crucial component of cellular homeostasis, a multiprotein complex that targets and degrades proteins. Dysregulation of this complex has been linked to carcinogenesis, especially in aggressive subtypes of breast cancer, as tumour suppressors, misfolded proteins, and cell cycle regulators can all be broken down by aberrant proteasomal activity.
 
-This project reconstructs a breast cancer-specific GRN centred on proteasomal components using transcriptome data. By combining three complementary computational approaches — GENIE3, iDINGO, and KiMONo — we identify important regulatory factors and causal relationships that may serve as therapeutic targets or diagnostic biomarkers.
+This project reconstructs a breast cancer-specific GRN centred on proteasomal components using transcriptome data. By combining three complementary computational approaches — GENIE3, iDINGO, and KiMONo, we identify important regulatory factors and causal relationships that may serve as therapeutic targets or diagnostic biomarkers.
 
 **Keywords:** Multi-Omics, Breast Cancer, Proteasome, Regulators, Network Inference, Systems Biology, Gene Regulatory Network, Prior Knowledge Network
 
