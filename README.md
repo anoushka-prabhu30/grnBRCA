@@ -35,69 +35,44 @@ Dysregulation of the ubiquitin-proteasome system (UPS) in breast cancer is drive
 ---
 
 ## Workflow
-+------------------------------+
-|  1. Candidate Gene Selection  |  60 genes: 50 proteasomal subunits +
-|     (60 genes + TFs)          |  10 TFs (NFE2L1, NFE2L2, STAT1/3,
-+-------------+----------------+  FOXO4, TP53, EGR1, NFYA/B/C, NFKB1)
-|
-v
-+------------------------------+
-|  2. Prior Knowledge Network   |  Built via NetworkAnalyst using
-|     (PKN) Construction        |  TF-gene, gene-miRNA, TF-miRNA
-+-------------+----------------+  coregulatory + signalling layers
-|                    430 nodes, 696 edges (SIF format)
-v
-+------------------------------+
-|  3. Data Acquisition          |  TCGA-BRCA via curatedTCGAData (R)
-|     TCGA-BRCA                 |  RNA-seq (HTSeq-FPKM) + miRNA (RPM)
-+-------------+----------------+  32 matched tumour-normal pairs (n=64)
-|
-v
-+------------------------------+
-|  4. Data Filtering            |  Retain only PKN-relevant genes
-|                               |  and miRNAs from expression matrices
-+-------------+----------------+
-|
-v
-+------------------------------+
-|  5. Network Inference         |  Three parallel approaches:
-|     (3 tools)                 |  GENIE3 . iDINGO . KiMONo
-+-------------+----------------+
-|
-v
-+------------------------------+
-|  6. Key Regulator             |  Cross-tool comparison, effect value
-|     Identification            |  analysis, hub network ranking
-+------------------------------+
+
+| Step | Description | Details |
+|------|-------------|---------|
+| 1 | **Candidate Gene Selection** | 60 genes: 50 proteasomal subunits (PSMA1-7, PSMB1-10, PSMC1-6, PSMD1-14, PSME1-4, PSMG1-4, PSMF1, ADRM1, PAAF1, POMP, USP14) + 10 TFs (NFE2L1, NFE2L2, STAT1, STAT3, FOXO4, TP53, EGR1, NFYA, NFYB, NFYC) |
+| 2 | **Prior Knowledge Network (PKN)** | Built via NetworkAnalyst integrating TF-gene, gene-miRNA, TF-miRNA coregulatory and signalling layers → 430 nodes, 696 edges (SIF format) |
+| 3 | **Data Acquisition** | TCGA-BRCA via curatedTCGAData (R): RNA-seq (HTSeq-FPKM) + miRNA (RPM), 32 matched tumour-normal pairs (n = 64) |
+| 4 | **Data Filtering** | Retain only PKN-relevant genes and miRNAs from the full expression matrices |
+| 5 | **Network Inference** | Three parallel approaches: GENIE3, iDINGO, KiMONo |
+| 6 | **Key Regulator Identification** | Cross-tool comparison, effect value analysis, hub network ranking |
 
 ---
 
 ## Repository Structure
 proteasome-grn-brca/
 ├── scripts/
-│   ├── 01_download_tumor_data.R          # Download TCGA-BRCA tumor samples
-│   ├── 02_download_normal_data.R         # Download TCGA-BRCA normal samples
-│   ├── 03_transpose_expression_data.R    # Transpose RNA-seq and miRNA matrices
-│   ├── 04_filter_to_pkn_genes.R          # Filter to PKN-relevant genes/miRNAs
-│   ├── 05_genie3_inference.R             # GENIE3 Random Forest GRN inference
-│   ├── 06_kimono_tumor_inference.R       # KiMONo multi-omics inference (tumour)
-│   ├── 07_kimono_normal_inference.R      # KiMONo multi-omics inference (normal)
-│   ├── 08_volcano_plot_idingo.R          # iDINGO volcano plot visualisation
-│   └── 09_kimono_effect_value_plots.R    # KiMONo predictor effect value plots
+│   ├── 01_download_tumor_data.R
+│   ├── 02_download_normal_data.R
+│   ├── 03_transpose_expression_data.R
+│   ├── 04_filter_to_pkn_genes.R
+│   ├── 05_genie3_inference.R
+│   ├── 06_kimono_tumor_inference.R
+│   ├── 07_kimono_normal_inference.R
+│   ├── 08_volcano_plot_idingo.R
+│   └── 09_kimono_effect_value_plots.R
 ├── data/
-│   ├── pkn/                              # Prior Knowledge Network files
-│   │   ├── PSM_network_analyst.sif       # Full PKN from NetworkAnalyst
+│   ├── pkn/
+│   │   ├── PSM_network_analyst.sif
 │   │   ├── gene_gene_networkanalyst_kimono_pkn.csv
 │   │   └── gene_mirna_networkanalyst_kimono_pkn.csv
-│   ├── processed/                        # Filtered expression matrices
-│   └── raw/                              # Raw TCGA downloads (not tracked)
+│   ├── processed/
+│   └── raw/                        (not tracked — regenerate with scripts 01-02)
 ├── results/
-│   ├── genie3/                           # GENIE3 link lists and weight matrices
-│   ├── kimono/                           # KiMONo inferred networks (CSV)
-│   └── idingo/                           # iDINGO output and volcano plots
-├── figures/                              # Generated plots and network images
+│   ├── genie3/
+│   ├── kimono/
+│   └── idingo/
+├── figures/
 ├── docs/
-│   └── idingo_instructions.md            # iDINGO Shiny app usage guide
+│   └── idingo_instructions.md
 ├── .gitignore
 ├── LICENSE
 └── README.md
