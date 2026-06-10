@@ -1,0 +1,7 @@
+data/raw/
+*.rda
+my_MAE_object.rda
+.Rhistory
+.RData
+.DS_Store
+Thumbs.db
